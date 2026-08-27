@@ -1,0 +1,115 @@
+body {
+    font-family: 'Alegreya', Georgia, "Times New Roman", serif;
+    color: #2d2925;
+    background: #fff;
+}
+
+.spells-page {
+    width: 1200px;
+    margin: 40px auto;
+}
+
+.spells-page > h1 {
+    margin: 0 0 40px;
+
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.spell-level {
+    margin-bottom: 40px;
+}
+
+.spell-level__title {
+    margin: 0 0 15px;
+    padding-bottom: 8px;
+
+    font-size: 24px;
+
+    color: #5e3b20;
+
+    border-bottom: 1px solid #d5aa77;
+}
+
+.spell-list {
+    column-count: 3;
+    column-gap: 30px;
+}
+
+.spell-list__item {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    gap: 15px;
+    padding: 6px 8px;
+
+    color: #2d2925;
+    text-decoration: none;
+
+    border-radius: 4px;
+
+    break-inside: avoid;
+    page-break-inside: avoid;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+.spell-list__item:hover {
+    color: #8b5428;
+
+    background: #fff7e8;
+}
+
+.spell-list__name {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.spell-list__school {
+    flex: 0 0 auto;
+
+    font-size: 13px;
+    font-style: italic;
+
+    color: #786858;
+}
+
+.spells-filter {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 35px;
+
+    font-size: 17px;
+}
+
+.spells-filter label {
+    font-weight: 600;
+
+    color: #5e3b20;
+}
+
+.spells-filter select {
+    min-width: 180px;
+
+    padding: 7px 32px 7px 10px;
+
+    font-family: inherit;
+    font-size: 16px;
+
+    color: #2d2925;
+    background: #fffaf1;
+
+    border: 1px solid #d5aa77;
+    border-radius: 4px;
+
+    cursor: pointer;
+}
