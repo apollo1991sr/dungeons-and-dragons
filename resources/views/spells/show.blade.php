@@ -18,33 +18,44 @@
                     <span></span>
                 </div>
 
-                @if(!empty($spell['icon']))
-                    <div class="spell-card__icon-box">
-                        <img
-                            src="{{ asset('images/spells/' . $spell['icon']) }}"
-                            alt="{{ $spell['name'] }}"
-                            class="spell-card__icon"
-                        >
+                <div
+                    @class([
+                        'spell-card__heading',
+                        'spell-card__heading--no-icon' => empty($spell['icon']),
+                    ])
+                >
+
+                    @if(!empty($spell['icon']))
+                        <div class="spell-card__icon-box">
+                            <img
+                                src="{{ asset('images/spells/' . $spell['icon']) }}"
+                                alt="{{ $spell['name'] }}"
+                                class="spell-card__icon"
+                            >
+                        </div>
+                    @endif
+
+                    <div class="spell-card__heading-text">
+
+                        <h1>
+                            {{ $spell['name'] }}
+                        </h1>
+
+                        <div class="spell-card__subtitle">
+                            @if((int) $spell['level'] === 0)
+                                Замовляння,
+                            @else
+                                {{ $spell['level'] }} рівень,
+                            @endif
+
+                            {{ mb_strtolower($spell['school']) }}
+
+                            @if($spell['ritual'] ?? false)
+                                (ритуал)
+                            @endif
+                        </div>
+
                     </div>
-                @endif
-
-                <h1>
-                    {{ $spell['name'] }}
-                </h1>
-
-                <div class="spell-card__subtitle">
-
-                    @if((int) $spell['level'] === 0)
-                        Замовляння,
-                    @else
-                        {{ $spell['level'] }} рівень,
-                    @endif
-
-                    {{ mb_strtolower($spell['school']) }}
-
-                    @if($spell['ritual'] ?? false)
-                        (ритуал)
-                    @endif
 
                 </div>
 

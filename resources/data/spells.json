@@ -213,7 +213,7 @@
             "Чарівник",
             "Чародій"
         ],
-        "icon": null
+        "icon": "Silent_Image.webp"
     },
     {
         "name": "БЕЗСЛІДНА ХОДА",
@@ -774,7 +774,7 @@
             "Чарівник",
             "Чародій"
         ],
-        "icon": null
+        "icon": "Detect_Magic.webp"
     },
     {
         "name": "ВИЯВЛЕННЯ ОТРУТ І ХВОРОБ",
@@ -800,7 +800,7 @@
             "Паладин",
             "Слідопит"
         ],
-        "icon": null
+        "icon": "Detect_Poison_and_Disease.webp"
     },
     {
         "name": "ВІДДЗЕРКАЛЕННЯ",
@@ -8181,7 +8181,7 @@
             "Чарівник",
             "Чародій"
         ],
-        "icon": null
+        "icon": "Prestidigitation.webp"
     },
     {
         "name": "ФОРМОЗМІНА",

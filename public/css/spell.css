@@ -86,7 +86,7 @@ body {
 
     padding:
         3mm
-        10mm
+        6mm
         2mm;
 
     text-align: center;
@@ -639,15 +639,24 @@ body {
     border-bottom: 0;
 }
 
+.spell-card__heading {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    align-items: center;
+
+    gap: 24px;
+
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .spell-card__icon-box {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 18mm;
-    height: 18mm;
-
-    margin: 1.5mm auto 2.5mm;
+    width: 150px;
+    height: 150px;
 
     box-sizing: border-box;
 
@@ -658,19 +667,57 @@ body {
             #5a4636 75%
         );
 
-    border: 0.35mm solid #9a744d;
-    border-radius: 1.2mm;
+    border: 1px solid #9a744d;
+    border-radius: 5px;
 
     box-shadow:
-        inset 0 0 0 0.25mm rgba(255, 235, 205, 0.12),
-        0 0.5mm 1.2mm rgba(0, 0, 0, 0.12);
+        inset 0 0 0 1px rgba(255, 235, 205, 0.12),
+        0 2px 4px rgba(0, 0, 0, 0.12);
+
+    overflow: hidden;
 }
 
 .spell-card__icon {
     display: block;
 
-    width: 15mm;
-    height: 15mm;
+    width: 144px;
+    height: 144px;
 
     object-fit: contain;
+
+    opacity: 1;
+}
+
+.spell-card__heading-text {
+    min-width: 0;
+
+    text-align: left;
+}
+
+.spell-card__heading-text h1 {
+    margin: 0 0 5px;
+
+    text-align: left;
+}
+
+.spell-card__heading-text .spell-card__subtitle {
+    margin: 0;
+
+    text-align: left;
+}
+
+.spell-card__heading--no-icon {
+    grid-template-columns: 1fr;
+}
+
+.spell-card__heading--no-icon .spell-card__heading-text {
+    text-align: center;
+}
+
+.spell-card__heading--no-icon h1 {
+    text-align: center;
+}
+
+.spell-card__heading--no-icon .spell-card__subtitle {
+    text-align: center;
 }
