@@ -18,6 +18,16 @@
                     <span></span>
                 </div>
 
+                @if(!empty($spell['icon']))
+                    <div class="spell-card__icon-box">
+                        <img
+                            src="{{ asset('images/spells/' . $spell['icon']) }}"
+                            alt="{{ $spell['name'] }}"
+                            class="spell-card__icon"
+                        >
+                    </div>
+                @endif
+
                 <h1>
                     {{ $spell['name'] }}
                 </h1>

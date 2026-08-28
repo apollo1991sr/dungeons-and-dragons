@@ -70,6 +70,16 @@
                             class="spell-list__item"
                         >
 
+                            <span class="spell-list__icon-box">
+                                @if(!empty($spell['icon']))
+                                    <img
+                                        src="{{ asset('images/spells/' . $spell['icon']) }}"
+                                        alt=""
+                                        class="spell-list__icon"
+                                    >
+                                @endif
+                            </span>
+
                             <span class="spell-list__name">
                                 {{ $spell['name'] }}
                             </span>

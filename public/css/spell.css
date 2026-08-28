@@ -49,7 +49,7 @@ body {
 
     position: relative;
 
-    width: 180mm;
+    width: 200mm;
 
     margin: 5mm auto 0;
 
@@ -262,8 +262,8 @@ body {
 .spell-card__body {
     padding:
         0
-        10mm
-        6mm;
+        6mm
+        2mm;
 }
 
 
@@ -543,7 +543,7 @@ body {
     }
 
     .spell-card {
-        width: 180mm;
+        width: 200mm;
 
         margin:
             5mm
@@ -637,4 +637,40 @@ body {
 
 .spell-table tbody tr:last-child td {
     border-bottom: 0;
+}
+
+.spell-card__icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 18mm;
+    height: 18mm;
+
+    margin: 1.5mm auto 2.5mm;
+
+    box-sizing: border-box;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #80654e 0%,
+            #5a4636 75%
+        );
+
+    border: 0.35mm solid #9a744d;
+    border-radius: 1.2mm;
+
+    box-shadow:
+        inset 0 0 0 0.25mm rgba(255, 235, 205, 0.12),
+        0 0.5mm 1.2mm rgba(0, 0, 0, 0.12);
+}
+
+.spell-card__icon {
+    display: block;
+
+    width: 15mm;
+    height: 15mm;
+
+    object-fit: contain;
 }
