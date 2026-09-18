@@ -3489,7 +3489,7 @@
             "Бард",
             "Чарівник"
         ],
-        "icon": null
+        "icon": "Magic_Mouth.webp"
     },
     {
         "name": "МАЛА ІЛЮЗІЯ",
@@ -4221,7 +4221,7 @@
             "Клірик",
             "Чарівник"
         ],
-        "icon": null
+        "icon": "Gentle_Repose.webp"
     },
     {
         "name": "НИЩІВНА КАРА",
@@ -4267,7 +4267,7 @@
         "classes": [
             "Чарівник"
         ],
-        "icon": null
+        "icon": "Nystuls_Magic_Aura.webp"
     },
     {
         "name": "ОБАЧЛИВІСТЬ",
@@ -4413,7 +4413,7 @@
             "Клірик",
             "Паладин"
         ],
-        "icon": null
+        "icon": "Zone_of_Truth.webp"
     },
     {
         "name": "ОЖИВЛЕННЯ",
@@ -4657,7 +4657,7 @@
             "Чарівник",
             "Чародій"
         ],
-        "icon": null
+        "icon": "Spider_Climb.webp"
     },
     {
         "name": "ПАЛЕЦЬ СМЕРТІ",
@@ -4828,7 +4828,7 @@
         "classes": [
             "Клірик"
         ],
-        "icon": null
+        "icon": "Augury.webp"
     },
     {
         "name": "ПЕРЕТВОРЕННЯ",
@@ -5184,7 +5184,7 @@
             "Чарівник",
             "Чародій"
         ],
-        "icon": null
+        "icon": "Suggestion.webp"
     },
     {
         "name": "ПОЛУМ’ЯНА СФЕРА",
@@ -5407,7 +5407,7 @@
             "Друїд",
             "Слідопит"
         ],
-        "icon": null
+        "icon": "Animal_Messenger.webp"
     },
     {
         "name": "ПОШУК ІСТОТИ",
@@ -5460,7 +5460,7 @@
             "Клірик",
             "Слідопит"
         ],
-        "icon": null
+        "icon": "Find_Traps.webp"
     },
     {
         "name": "ПОШУК ПРЕДМЕТА",
@@ -5488,7 +5488,7 @@
             "Слідопит",
             "Чарівник"
         ],
-        "icon": null
+        "icon": "Locate_Object.webp"
     },
     {
         "name": "ПОШУК СКАКУНА",
