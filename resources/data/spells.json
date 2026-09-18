@@ -946,7 +946,7 @@
             "Клірик",
             "Чарівник"
         ],
-        "icon": null
+        "icon": "Continual_Flame.webp"
     },
     {
         "name": "ВКАЗІВНИЙ ЗАРЯД",
@@ -2299,7 +2299,7 @@
             "Друїд",
             "Слідопит"
         ],
-        "icon": null
+        "icon": "Beast_Sense.webp"
     },
     {
         "name": "ЗВ’ЯЗОК З ІНШОЮ ПЛОЩИНОЮ",
@@ -2443,7 +2443,7 @@
             "Чарівник",
             "Чародій"
         ],
-        "icon": null
+        "icon": "Alter_Self.webp"
     },
     {
         "name": "ЗМІНА ПАМ’ЯТІ",
@@ -4050,7 +4050,7 @@
             "Чаклун",
             "Чарівник"
         ],
-        "icon": null
+        "icon": "Illusory_Script.webp"
     },
     {
         "name": "НЕВИДИМІСТЬ",
@@ -4608,7 +4608,7 @@
             "Клірик",
             "Паладин"
         ],
-        "icon": null
+        "icon": "Purify_Food_and_Drink.webp"
     },
     {
         "name": "ПАВУТИНА",
@@ -6717,7 +6717,7 @@
             "Слідопит",
             "Чарівник"
         ],
-        "icon": null
+        "icon": "Alarm.webp"
     },
     {
         "name": "СИЛОВА КЛІТКА",
@@ -7962,7 +7962,7 @@
         "classes": [
             "Чарівник"
         ],
-        "icon": null
+        "icon": "Tensers_Floating_Disk.webp"
     },
     {
         "name": "ТЕРНОВИЙ БАТІГ",
