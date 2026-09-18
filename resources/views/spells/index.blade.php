@@ -66,7 +66,13 @@
                     @foreach($items as $spell)
 
                         <a
-                            href="{{ route('spells.show', $spell['slug']) }}"
+                            href="{{ route(
+                                'spells.show',
+                                array_filter([
+                                    'slug' => $spell['slug'],
+                                    'class' => $selectedClass,
+                                ])
+                            ) }}"
                             class="spell-list__item"
                         >
 

@@ -1,3 +1,15 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Alegreya', Georgia, "Times New Roman", serif;
     color: #2d2925;
@@ -7,6 +19,8 @@ body {
 .spells-page {
     width: 1200px;
     margin: 40px auto;
+
+    box-sizing: border-box;
 }
 
 .spells-page > h1 {
@@ -155,4 +169,85 @@ body {
     box-shadow:
         inset 0 0 0 1px rgba(255, 235, 205, 0.12),
         0 1px 2px rgba(0, 0, 0, 0.10);
+}
+/* =========================
+   ADAPTIVE
+   ========================= */
+
+/* Малий desktop / великий планшет */
+@media (max-width: 1279px) {
+    .spells-page {
+        width: 920px;
+    }
+
+    .spell-list {
+        column-count: 2;
+    }
+}
+
+
+/* Планшет */
+@media (max-width: 1023px) {
+    .spells-page {
+        width: 720px;
+    }
+
+    .spell-list {
+        column-count: 2;
+    }
+}
+
+
+/* Телефон */
+@media (max-width: 767px) {
+    .spells-page {
+        width: 440px;
+        margin: 20px auto;
+
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .spell-list {
+        column-count: 1;
+    }
+
+    .spells-page > h1 {
+        margin-bottom: 25px;
+        font-size: 30px;
+    }
+
+    .spell-level {
+        margin-bottom: 30px;
+    }
+
+    .spell-level__title {
+        font-size: 22px;
+    }
+
+    .spells-filter {
+        margin-bottom: 25px;
+    }
+}
+
+
+/* Вузький телефон */
+@media (max-width: 479px) {
+    .spells-page {
+        width: 360px;
+
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+}
+
+
+/* 360–399 */
+@media (max-width: 399px) {
+    .spells-page {
+        width: 320px;
+
+        padding-left: 12px;
+        padding-right: 12px;
+    }
 }

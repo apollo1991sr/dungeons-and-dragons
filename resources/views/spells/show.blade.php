@@ -10,6 +10,24 @@
 
     <main class="spell-page">
 
+        <nav class="spell-breadcrumbs" aria-label="Хлібні крихти">
+            <a  href="{{ route(
+                    'spells.index',
+                    array_filter([
+                        'class' => request('class'),
+                    ])
+                ) }}"
+            >
+                Закляття
+            </a>
+
+            <span class="spell-breadcrumbs__separator">›</span>
+
+            <span class="spell-breadcrumbs__current">
+                {{ $spell['name'] }}
+            </span>
+        </nav>
+
         <article class="spell-card {{ $spell['schoolClass'] }}">
 
             <header class="spell-card__header">
