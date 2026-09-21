@@ -2,57 +2,47 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\SpellClass;
+use App\Models\Spell;
 use Collator;
-use Illuminate\Support\Facades\File;
+use Illuminate\View\View;
 
 class SpellController extends Controller
 {
-    public function index()
+    public function index(): View
     {
-        $spells = $this->getSpells();
-
-        $classes = [
-            'Бард',
-            'Друїд',
-            'Клірик',
-            'Паладин',
-            'Слідопит',
-            'Чаклун',
-            'Чарівник',
-            'Чародій',
-        ];
+        $classes = SpellClass::cases();
 
         $selectedClass = request('class');
 
-        if (
-            $selectedClass &&
-            in_array($selectedClass, $classes, true)
-        ) {
-            $spells = array_filter(
-                $spells,
-                fn (array $spell) =>
-                in_array(
-                    $selectedClass,
-                    $spell['classes'] ?? [],
-                    true
-                )
+        $selectedClassEnum = $selectedClass
+            ? SpellClass::tryFrom($selectedClass)
+            : null;
+
+        $query = Spell::query();
+
+        if ($selectedClassEnum) {
+            $query->whereJsonContains(
+                'classes',
+                $selectedClassEnum->value
             );
         }
 
+        $spells = $query->get();
+
         $collator = new Collator('uk_UA');
 
-        usort($spells, function (array $a, array $b) use ($collator) {
-            if ($a['level'] !== $b['level']) {
-                return $a['level'] <=> $b['level'];
-            }
+        $spells = $spells
+            ->sort(function (Spell $a, Spell $b) use ($collator) {
+                if ($a->level !== $b->level) {
+                    return $a->level <=> $b->level;
+                }
 
-            return $collator->compare(
-                $a['name'],
-                $b['name']
-            );
-        });
-
-        $spells = collect($spells)
+                return $collator->compare(
+                    $a->name,
+                    $b->name
+                );
+            })
             ->groupBy('level');
 
         return view(
@@ -65,25 +55,14 @@ class SpellController extends Controller
         );
     }
 
-    public function show(string $slug)
+    public function show(string $slug): View
     {
-        $spell = collect($this->getSpells())
-            ->firstWhere('slug', $slug);
+        $spell = Spell::where('slug', $slug)
+            ->firstOrFail();
 
-        abort_unless($spell, 404);
-
-        return view('spells.show', compact('spell'));
-    }
-
-    private function getSpells(): array
-    {
-        $path = resource_path('data/spells.json');
-
-        return json_decode(
-            File::get($path),
-            true,
-            512,
-            JSON_THROW_ON_ERROR
+        return view(
+            'spells.show',
+            compact('spell')
         );
     }
 }

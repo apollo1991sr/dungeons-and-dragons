@@ -35,10 +35,10 @@
                 @foreach($classes as $class)
 
                     <option
-                        value="{{ $class }}"
-                        @selected($selectedClass === $class)
+                        value="{{ $class->value }}"
+                        @selected($selectedClass === $class->value)
                     >
-                        {{ $class }}
+                        {{ $class->label() }}
                     </option>
 
                 @endforeach
@@ -47,7 +47,8 @@
 
         </form>
 
-        @foreach($spells as $level => $items)
+
+        @forelse($spells as $level => $items)
 
             <section class="spell-level">
 
@@ -61,6 +62,7 @@
 
                 </h2>
 
+
                 <div class="spell-list">
 
                     @foreach($items as $spell)
@@ -69,7 +71,7 @@
                             href="{{ route(
                                 'spells.show',
                                 array_filter([
-                                    'slug' => $spell['slug'],
+                                    'slug' => $spell->slug,
                                     'class' => $selectedClass,
                                 ])
                             ) }}"
@@ -77,21 +79,28 @@
                         >
 
                             <span class="spell-list__icon-box">
-                                @if(!empty($spell['icon']))
+
+                                @if($spell->image)
+
                                     <img
-                                        src="{{ asset('images/spells/' . $spell['icon']) }}"
+                                        src="{{ asset('images/spells') . '/' . rawurlencode($spell->image) }}"
                                         alt=""
                                         class="spell-list__icon"
+                                        loading="lazy"
                                     >
+
                                 @endif
+
                             </span>
+
 
                             <span class="spell-list__name">
-                                {{ $spell['name'] }}
+                                {{ $spell->name }}
                             </span>
 
+
                             <span class="spell-list__school">
-                                {{ $spell['school'] }}
+                                {{ $spell->school->label() }}
                             </span>
 
                         </a>
@@ -102,7 +111,13 @@
 
             </section>
 
-        @endforeach
+        @empty
+
+            <p>
+                Заклять не знайдено.
+            </p>
+
+        @endforelse
 
     </main>
 

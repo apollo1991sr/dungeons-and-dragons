@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $spell['name'])
+@section('title', $spell->name)
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/spell.css') }}">
@@ -11,7 +11,8 @@
     <main class="spell-page">
 
         <nav class="spell-breadcrumbs" aria-label="Хлібні крихти">
-            <a  href="{{ route(
+            <a
+                href="{{ route(
                     'spells.index',
                     array_filter([
                         'class' => request('class'),
@@ -24,11 +25,12 @@
             <span class="spell-breadcrumbs__separator">›</span>
 
             <span class="spell-breadcrumbs__current">
-                {{ $spell['name'] }}
+                {{ $spell->name }}
             </span>
         </nav>
 
-        <article class="spell-card {{ $spell['schoolClass'] }}">
+
+        <article class="spell-card {{ $spell->school->cssClass() }}">
 
             <header class="spell-card__header">
 
@@ -39,36 +41,32 @@
                 <div
                     @class([
                         'spell-card__heading',
-                        'spell-card__heading--no-icon' => empty($spell['icon']),
+                        'spell-card__heading--no-icon' => !$spell->image,
                     ])
                 >
 
-                    @if(!empty($spell['icon']))
+                    @if($spell->image)
                         <div class="spell-card__icon-box">
                             <img
-                                src="{{ asset('images/spells/' . $spell['icon']) }}"
-                                alt="{{ $spell['name'] }}"
+                                src="{{ asset('images/spells') . '/' . rawurlencode($spell->image) }}"
+                                alt="{{ $spell->name }}"
                                 class="spell-card__icon"
                             >
                         </div>
                     @endif
 
+
                     <div class="spell-card__heading-text">
 
                         <h1>
-                            {{ $spell['name'] }}
+                            {{ $spell->name }}
                         </h1>
 
                         <div class="spell-card__subtitle">
-                            @if((int) $spell['level'] === 0)
-                                Замовляння,
-                            @else
-                                {{ $spell['level'] }} рівень,
-                            @endif
+                            {{ $spell->levelLabel() }},
+                            {{ mb_strtolower($spell->school->label()) }}
 
-                            {{ mb_strtolower($spell['school']) }}
-
-                            @if($spell['ritual'] ?? false)
+                            @if($spell->ritual)
                                 (ритуал)
                             @endif
                         </div>
@@ -90,7 +88,7 @@
                         </span>
 
                         <span class="spell-property__value">
-                            {{ $spell['castingTime'] }}
+                            {{ $spell->casting_time }}
                         </span>
                     </div>
 
@@ -101,58 +99,37 @@
                         </span>
 
                         <span class="spell-property__value">
-                            {{ $spell['range'] }}
+                            {{ $spell->range }}
                         </span>
                     </div>
 
 
                     <div class="spell-property">
-
                         <span class="spell-property__name">
                             Компоненти:
                         </span>
 
                         <span class="spell-property__value">
+                            {{ $spell->componentsLabel() }}
 
-                            @php
-                                $components = [];
-
-                                if ($spell['components']['verbal'] ?? false) {
-                                    $components[] = 'С';
-                                }
-
-                                if ($spell['components']['somatic'] ?? false) {
-                                    $components[] = 'Т';
-                                }
-
-                                if ($spell['components']['material'] ?? false) {
-                                    $components[] = 'М';
-                                }
-                            @endphp
-
-                            {{ implode(', ', $components) }}
-
-                            @if($spell['components']['materialDescription'] ?? null)
+                            @if($spell->component_material && $spell->material)
                                 <span class="spell-property__note">
-                                    ({{ $spell['components']['materialDescription'] }})
+                                    ({{ $spell->material }})
                                 </span>
                             @endif
-
                         </span>
 
                     </div>
 
 
                     <div class="spell-property">
-
                         <span class="spell-property__name">
                             Тривалість:
                         </span>
 
                         <span class="spell-property__value">
-                            {{ $spell['duration'] }}
+                            {{ $spell->duration }}
                         </span>
-
                     </div>
 
                 </div>
@@ -164,7 +141,7 @@
 
 
                 <div class="spell-card__description">
-                    {!! $spell['description'] !!}
+                    {!! $spell->description !!}
                 </div>
 
             </div>

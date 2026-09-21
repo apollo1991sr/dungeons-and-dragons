@@ -3,6 +3,7 @@
 @section('title', 'Предмети')
 
 @push('styles')
+    <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <link rel="stylesheet" href="{{ asset('css/items-index.css') }}">
 @endpush
 
@@ -66,7 +67,7 @@
                                                     @if($item->image)
 
                                                         <img
-                                                            src="{{ asset('images/items/' . $item->image) }}"
+                                                            src="{{ asset('images/items') . '/' . rawurlencode($item->image) }}"
                                                             alt="{{ $item->name }}"
                                                             loading="lazy"
                                                         >

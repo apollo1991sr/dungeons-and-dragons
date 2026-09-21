@@ -1,3 +1,7 @@
+body {
+    font-family: 'Alegreya';
+}
+
 .items-index {
     width: 100%;
     padding: 10px 12px 50px;
@@ -39,7 +43,7 @@
 
     align-items: start;
 
-    gap: 45px 60px;
+    gap: 25px 10px;
 }
 
 
@@ -99,7 +103,7 @@
 
     gap: 4px;
 
-    min-height: 36px;
+    min-height: 40px;
 
     color: #8a4300;
     text-decoration: none;
@@ -118,14 +122,14 @@
 */
 
 .items-list__image {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    flex: 0 0 36px;
+    flex: 0 0 40px;
 
     overflow: hidden;
 
@@ -193,3 +197,5 @@
     }
 
 }
+
+

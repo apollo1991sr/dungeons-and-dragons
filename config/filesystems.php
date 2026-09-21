@@ -60,6 +60,22 @@ return [
             'report' => false,
         ],
 
+        'items' => [
+            'driver' => 'local',
+            'root' => public_path('images/items'),
+            'url' => '/images/items',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        'spells' => [
+            'driver' => 'local',
+            'root' => public_path('images/spells'),
+            'url' => '/images/spells',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
     ],
 
     /*
