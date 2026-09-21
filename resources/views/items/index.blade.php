@@ -12,7 +12,7 @@
     <main class="items-index">
 
         <h1 class="items-index__title">
-            Сторінки для друку
+            Предмети
         </h1>
 
         @foreach($categories as $category)

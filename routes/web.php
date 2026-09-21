@@ -4,9 +4,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\SpellController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return redirect()->route('spells.index');
-});
+Route::view('/', 'home')->name('home');
 
 Route::get('/spells', [SpellController::class, 'index'])
     ->name('spells.index');
