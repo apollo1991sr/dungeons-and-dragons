@@ -11,6 +11,12 @@
     <main class="spell-page">
 
         <nav class="spell-breadcrumbs" aria-label="Хлібні крихти">
+            <a href="{{ route('home') }}">
+                Головна
+            </a>
+
+            <span class="spell-breadcrumbs__separator">›</span>
+
             <a
                 href="{{ route(
                     'spells.index',

@@ -16,6 +16,12 @@
                 <main class="page__main" lang="uk">
 
                     <nav class="breadcrumbs" aria-label="Хлібні крихти">
+                        <a href="{{ route('home') }}">
+                            Головна
+                        </a>
+
+                        <span class="spell-breadcrumbs__separator" aria-hidden="true">›</span>
+
                         <a href="{{ route('items.index') }}" class="breadcrumbs__link">
                             Предмети
                         </a>

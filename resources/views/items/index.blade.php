@@ -15,6 +15,18 @@
             Предмети
         </h1>
 
+        <nav class="breadcrumbs" aria-label="Хлібні крихти">
+            <a href="{{ route('home') }}">
+                Головна
+            </a>
+
+            <span class="spell-breadcrumbs__separator" aria-hidden="true">›</span>
+
+            <span class="breadcrumbs__current" aria-current="page">
+                Предмети
+            </span>
+        </nav>
+
         @foreach($categories as $category)
 
             <section class="items-category">

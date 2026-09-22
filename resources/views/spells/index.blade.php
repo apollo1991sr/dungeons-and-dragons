@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
+@use('App\Enums\SpellLevel')
+
 @section('title', 'Закляття')
 
 @push('styles')
+    <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <link rel="stylesheet" href="{{ asset('css/spells.css') }}">
 @endpush
 
@@ -11,6 +14,18 @@
     <main class="spells-page">
 
         <h1>Закляття</h1>
+
+        <nav class="breadcrumbs" aria-label="Хлібні крихти">
+            <a href="{{ route('home') }}">
+                Головна
+            </a>
+
+            <span class="spell-breadcrumbs__separator" aria-hidden="true">›</span>
+
+            <span class="breadcrumbs__current" aria-current="page">
+                Закляття
+            </span>
+        </nav>
 
         <form
             method="GET"
