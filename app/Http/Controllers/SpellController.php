@@ -35,7 +35,7 @@ class SpellController extends Controller
         $spells = $spells
             ->sort(function (Spell $a, Spell $b) use ($collator) {
                 if ($a->level !== $b->level) {
-                    return $a->level <=> $b->level;
+                    return $a->level->value <=> $b->level->value;
                 }
 
                 return $collator->compare(
@@ -43,7 +43,9 @@ class SpellController extends Controller
                     $b->name
                 );
             })
-            ->groupBy('level');
+            ->groupBy(
+                fn (Spell $spell) => $spell->level->value
+            );
 
         return view(
             'spells.index',

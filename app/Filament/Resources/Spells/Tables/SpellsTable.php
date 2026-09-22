@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Spells\Tables;
 
+use App\Enums\SpellClass;
+use App\Enums\SpellLevel;
 use App\Enums\SpellSchool;
 use App\Models\Spell;
 use Filament\Actions\BulkActionGroup;
@@ -23,7 +25,6 @@ class SpellsTable
             ->modifyQueryUsing(
                 fn (Builder $query) => $query
                     ->orderBy('level')
-                    ->orderBy('school')
                     ->orderBy('name')
             )
 
@@ -38,18 +39,10 @@ class SpellsTable
 
                 TextColumn::make('name')
                     ->label('Назва')
-                    ->searchable()
-                    ->sortable(),
+                    ->searchable(),
 
                 TextColumn::make('level')
-                    ->label('Рівень')
-                    ->formatStateUsing(
-                        fn (int $state): string =>
-                        $state === 0
-                            ? 'Замовляння'
-                            : $state . ' рівень'
-                    )
-                    ->sortable(),
+                    ->label('Рівень'),
 
                 TextColumn::make('school')
                     ->label('Школа')
@@ -58,8 +51,7 @@ class SpellsTable
                         $state instanceof SpellSchool
                             ? $state->label()
                             : SpellSchool::from($state)->label()
-                    )
-                    ->sortable(),
+                    ),
 
                 IconColumn::make('ritual')
                     ->label('Ритуал')
@@ -79,20 +71,20 @@ class SpellsTable
 
             ->filters([
 
+                SelectFilter::make('class')
+                    ->label('Клас')
+                    ->options(SpellClass::class)
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query->when(
+                            $data['value'] ?? null,
+                            fn (Builder $query, string $value): Builder =>
+                            $query->whereJsonContains('classes', $value)
+                        );
+                    }),
+
                 SelectFilter::make('level')
                     ->label('Рівень')
-                    ->options([
-                        0 => 'Замовляння',
-                        1 => '1 рівень',
-                        2 => '2 рівень',
-                        3 => '3 рівень',
-                        4 => '4 рівень',
-                        5 => '5 рівень',
-                        6 => '6 рівень',
-                        7 => '7 рівень',
-                        8 => '8 рівень',
-                        9 => '9 рівень',
-                    ]),
+                    ->options(SpellLevel::class),
 
                 SelectFilter::make('school')
                     ->label('Школа')
@@ -111,6 +103,8 @@ class SpellsTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+
+            ->defaultPaginationPageOption(25);
     }
 }

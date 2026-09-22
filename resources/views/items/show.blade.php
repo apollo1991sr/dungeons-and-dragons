@@ -509,59 +509,24 @@
                             {{ $item->name }}
                         </h1>
 
+                        @if($item->description)
+                            <div class="description">
+                                <div class="icon"></div>
+
+                                <div class="text">
+                                    {!! $item->description !!}
+                                </div>
+                            </div>
+                        @endif
 
                         @foreach($item->content ?? [] as $block)
-
                             @if(!empty($block['title']))
-
-                                <h2>
-                                    {{ $block['title'] }}
-                                </h2>
-
+                                <h2>{{ $block['title'] }}</h2>
                             @endif
 
-
-                            {{-- Опис --}}
-                            @if(($block['type'] ?? null) === 'description')
-
-                                <div class="description">
-
-                                    <div class="icon"></div>
-
-                                    <div class="text">
-                                        {!! $block['html'] ?? '' !!}
-                                    </div>
-
-                                </div>
-
-
-                                {{-- Звичайний HTML-блок --}}
-                            @elseif(($block['type'] ?? 'html') === 'html')
-
-                                {!! $block['html'] ?? '' !!}
-
-
-                                {{-- На майбутнє: список --}}
-                            @elseif(($block['type'] ?? null) === 'list')
-
-                                <ul>
-
-                                    @foreach($block['items'] ?? [] as $contentItem)
-
-                                        <li>
-                                            {!! $contentItem !!}
-                                        </li>
-
-                                    @endforeach
-
-                                </ul>
-
-                            @endif
-
+                            {!! $block['html'] ?? '' !!}
                         @endforeach
-
                     </div>
-
                 </main>
 
             </div>

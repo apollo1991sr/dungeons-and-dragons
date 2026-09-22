@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\SpellClass;
+use App\Enums\SpellLevel;
 use App\Enums\SpellSchool;
 use Illuminate\Database\Eloquent\Casts\AsEnumCollection;
 use Illuminate\Database\Eloquent\Model;
@@ -30,7 +31,7 @@ class Spell extends Model
     protected function casts(): array
     {
         return [
-            'level' => 'integer',
+            'level' => SpellLevel::class,
             'school' => SpellSchool::class,
             'ritual' => 'boolean',
 
@@ -68,13 +69,6 @@ class Spell extends Model
                 $spell->material = null;
             }
         });
-    }
-
-    public function levelLabel(): string
-    {
-        return $this->level === 0
-            ? 'Замовляння'
-            : $this->level . ' рівень';
     }
 
     public function componentsLabel(): string

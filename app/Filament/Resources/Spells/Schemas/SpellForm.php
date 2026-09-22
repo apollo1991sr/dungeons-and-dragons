@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Spells\Schemas;
 
 use App\Enums\SpellClass;
+use App\Enums\SpellLevel;
 use App\Enums\SpellSchool;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
@@ -74,18 +75,7 @@ class SpellForm
 
                         Select::make('level')
                             ->label('Рівень')
-                            ->options([
-                                0 => 'Замовляння',
-                                1 => '1 рівень',
-                                2 => '2 рівень',
-                                3 => '3 рівень',
-                                4 => '4 рівень',
-                                5 => '5 рівень',
-                                6 => '6 рівень',
-                                7 => '7 рівень',
-                                8 => '8 рівень',
-                                9 => '9 рівень',
-                            ])
+                            ->options(SpellLevel::class)
                             ->required()
                             ->native(false),
 

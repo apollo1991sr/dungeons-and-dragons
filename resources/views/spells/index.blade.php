@@ -49,24 +49,13 @@
 
 
         @forelse($spells as $level => $items)
-
             <section class="spell-level">
-
                 <h2 class="spell-level__title">
-
-                    @if((int) $level === 0)
-                        Замовляння
-                    @else
-                        {{ $level }} рівень
-                    @endif
-
+                    {{ SpellLevel::from((int) $level)->label() }}
                 </h2>
 
-
                 <div class="spell-list">
-
                     @foreach($items as $spell)
-
                         <a
                             href="{{ route(
                                 'spells.show',

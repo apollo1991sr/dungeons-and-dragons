@@ -267,10 +267,17 @@ class ItemForm
                 */
 
                 Section::make('Контент')
+                    ->columnSpanFull()
                     ->description(
                         'Блоки після заголовка предмета: Опис, Властивості, Застосування тощо.'
                     )
                     ->schema([
+
+                        Textarea::make('description')
+                            ->label('Опис')
+                            ->rows(3)
+                            ->required()
+                            ->columnSpanFull(),
 
                         Repeater::make('content')
                             ->label('')
@@ -280,16 +287,6 @@ class ItemForm
                                     ->label('Заголовок')
                                     ->required()
                                     ->placeholder('Опис'),
-
-                                Select::make('type')
-                                    ->label('Тип')
-                                    ->options([
-                                        'description' => 'Опис',
-                                        'html' => 'HTML',
-                                    ])
-                                    ->required()
-                                    ->default('html')
-                                    ->native(false),
 
                                 Textarea::make('html')
                                     ->label('HTML / текст')

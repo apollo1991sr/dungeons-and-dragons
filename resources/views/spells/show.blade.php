@@ -63,7 +63,7 @@
                         </h1>
 
                         <div class="spell-card__subtitle">
-                            {{ $spell->levelLabel() }},
+                            {{ $spell->level->label() }},
                             {{ mb_strtolower($spell->school->label()) }}
 
                             @if($spell->ritual)

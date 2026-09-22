@@ -30,6 +30,7 @@ class Item extends Model
         'single_use',
         'stats',
         'damage',
+        'description',
         'content',
     ];
 
@@ -65,6 +66,7 @@ class Item extends Model
                 'stats',
                 'damage',
                 'attributes',
+                'description',
                 'content',
             ];
 
