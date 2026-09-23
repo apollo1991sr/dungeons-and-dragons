@@ -1261,6 +1261,14 @@ a:hover {
     background-image: url("../images/icons/condition/charmed.webp");
 }
 
+.frightened {
+    background-image: url("../images/icons/condition/frightened.webp");
+}
+
+.possessed {
+    background-image: url("../images/icons/condition/possessed.webp");
+}
+
 .downed {
     background-image: url("../images/icons/condition/downed.webp");
 }
