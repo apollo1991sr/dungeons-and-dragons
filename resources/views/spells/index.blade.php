@@ -27,6 +27,15 @@
             </span>
         </nav>
 
+        <div class="spells-search">
+            <input
+                type="search"
+                id="spell-search"
+                placeholder="Пошук закляття..."
+                autocomplete="off"
+            >
+        </div>
+
         <form
             method="GET"
             action="{{ route('spells.index') }}"
@@ -125,4 +134,7 @@
 
     </main>
 
+    @push('scripts')
+        <script src="{{ asset('js/spells.js') }}" defer></script>
+    @endpush
 @endsection

@@ -16,107 +16,46 @@ body {
     background: #fff;
 }
 
-.spells-page {
-    width: 1200px;
-    margin: 40px auto;
 
-    box-sizing: border-box;
+/* =========================
+   PAGE
+   ========================= */
+
+.spells-page {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+    padding: 32px 24px 60px;
 }
 
 .spells-page > h1 {
-    margin: 0 0 40px;
+    margin: 0 0 32px;
 
-    font-size: 34px;
+    font-size: 36px;
+    line-height: 1.1;
     font-weight: 700;
 }
 
-.spell-level {
-    margin-bottom: 40px;
-}
 
-.spell-level__title {
-    margin: 0 0 15px;
-    padding-bottom: 8px;
-
-    font-size: 24px;
-
-    color: #5e3b20;
-
-    border-bottom: 1px solid #d5aa77;
-}
-
-.spell-list {
-    column-count: 3;
-    column-gap: 30px;
-}
-
-.spell-list__item {
-    display: grid;
-
-    grid-template-columns:
-        34px
-        minmax(0, 1fr)
-        auto;
-
-    align-items: center;
-
-    column-gap: 10px;
-
-    width: 100%;
-    box-sizing: border-box;
-
-    padding: 4px 6px;
-
-    color: #2d2925;
-    text-decoration: none;
-
-    border-radius: 4px;
-
-    break-inside: avoid;
-    page-break-inside: avoid;
-
-    transition:
-        background 0.15s ease,
-        color 0.15s ease;
-}
-
-.spell-list__item:hover {
-    color: #8b5428;
-    background: #fff7e8;
-}
-
-.spell-list__name {
-    min-width: 0;
-
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.spell-list__school {
-    white-space: nowrap;
-
-    font-size: 13px;
-    font-style: italic;
-
-    color: #9a7460;
-
-    text-align: right;
-}
+/* =========================
+   FILTER
+   ========================= */
 
 .spells-filter {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 
     gap: 12px;
 
-    margin-bottom: 35px;
+    margin-bottom: 36px;
 
     font-size: 17px;
 }
 
 .spells-filter label {
     font-weight: 600;
-
     color: #5e3b20;
 }
 
@@ -137,14 +76,80 @@ body {
     cursor: pointer;
 }
 
-.spell-list__icon {
-    display: block;
 
-    width: 24px;
-    height: 24px;
+/* =========================
+   LEVEL
+   ========================= */
 
-    object-fit: contain;
+.spell-level {
+    margin-bottom: 44px;
 }
+
+.spell-level:last-child {
+    margin-bottom: 0;
+}
+
+.spell-level__title {
+    margin: 0 0 16px;
+    padding-bottom: 9px;
+
+    font-size: 24px;
+    line-height: 1.2;
+
+    color: #5e3b20;
+
+    border-bottom: 1px solid #d5aa77;
+}
+
+
+/* =========================
+   LIST
+   ========================= */
+
+.spell-list {
+    column-count: 3;
+    column-gap: 30px;
+}
+
+.spell-list__item {
+    display: grid;
+
+    grid-template-columns:
+        34px
+        minmax(0, 1fr)
+        auto;
+
+    align-items: center;
+
+    column-gap: 10px;
+
+    width: 100%;
+
+    padding: 5px 6px;
+    margin-bottom: 2px;
+
+    color: #2d2925;
+    text-decoration: none;
+
+    border-radius: 4px;
+
+    break-inside: avoid;
+    page-break-inside: avoid;
+
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease;
+}
+
+.spell-list__item:hover {
+    color: #8b5428;
+    background: #fff7e8;
+}
+
+
+/* =========================
+   ICON
+   ========================= */
 
 .spell-list__icon-box {
     display: flex;
@@ -154,7 +159,7 @@ body {
     width: 32px;
     height: 32px;
 
-    box-sizing: border-box;
+    overflow: hidden;
 
     background:
         radial-gradient(
@@ -170,84 +175,263 @@ body {
         inset 0 0 0 1px rgba(255, 235, 205, 0.12),
         0 1px 2px rgba(0, 0, 0, 0.10);
 }
+
+.spell-list__icon {
+    display: block;
+
+    width: 24px;
+    height: 24px;
+
+    object-fit: contain;
+}
+
+
 /* =========================
-   ADAPTIVE
+   TEXT
    ========================= */
 
-/* Малий desktop / великий планшет */
-@media (max-width: 1279px) {
-    .spells-page {
-        width: 920px;
-    }
+.spell-list__name {
+    min-width: 0;
 
-    .spell-list {
-        column-count: 2;
-    }
+    font-size: 16px;
+    line-height: 1.25;
+    font-weight: 600;
+}
+
+.spell-list__school {
+    white-space: nowrap;
+
+    font-size: 13px;
+    line-height: 1.2;
+    font-style: italic;
+
+    color: #9a7460;
+
+    text-align: right;
+}
+
+.spells-search {
+    margin-bottom: 24px;
+}
+
+.spells-search input {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+
+    font: inherit;
+    font-size: 16px;
+
+    color: #2d2925;
+    background: #fffaf1;
+
+    border: 1px solid #d5aa77;
+    border-radius: 4px;
+}
+
+.spells-search input:focus {
+    outline: 2px solid #d5aa77;
+    outline-offset: 2px;
+}
+
+/* Явно приховуємо елементи, оскільки посилання мають display: grid. */
+.spell-list__item[hidden],
+.spell-level[hidden] {
+    display: none !important;
 }
 
 
-/* Планшет */
-@media (max-width: 1023px) {
-    .spells-page {
-        width: 720px;
-    }
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 900px) {
 
     .spell-list {
         column-count: 2;
+        column-gap: 24px;
     }
+
 }
 
 
-/* Телефон */
-@media (max-width: 767px) {
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 640px) {
+
+    /* СТОРІНКА */
+
     .spells-page {
-        width: 440px;
-        margin: 20px auto;
-
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .spell-list {
-        column-count: 1;
+        width: 100%;
+        min-width: 0;
+        margin: 0 auto;
+        padding: 20px 16px 40px;
     }
 
     .spells-page > h1 {
-        margin-bottom: 25px;
+        margin: 0 0 20px;
         font-size: 30px;
     }
 
+
+    /* ФІЛЬТР */
+
+    .spells-filter {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        margin-bottom: 28px;
+    }
+
+    .spells-filter select {
+        width: 100%;
+        min-width: 0;
+        min-height: 42px;
+    }
+
+
+    /* РІВНІ */
+
     .spell-level {
-        margin-bottom: 30px;
+        margin-bottom: 32px;
     }
 
     .spell-level__title {
+        margin: 0 0 10px;
+        padding-bottom: 8px;
         font-size: 22px;
     }
 
+
+    /* СПИСОК */
+
+    .spell-list {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+
+        column-count: auto;
+    }
+
+    .spell-list__item {
+        display: grid;
+
+        grid-template-columns: 34px minmax(0, 1fr);
+        grid-template-rows: auto auto;
+
+        column-gap: 12px;
+        row-gap: 3px;
+
+        align-items: start;
+
+        width: 100%;
+        min-width: 0;
+
+        margin: 0;
+        padding: 10px 4px;
+
+        border-bottom: 1px solid #eee6dc;
+        border-radius: 0;
+    }
+
+    .spell-list__item:last-child {
+        border-bottom: 0;
+    }
+
+
+    /* ІКОНКА */
+
+    .spell-list__icon-box {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+
+        align-self: center;
+
+        width: 34px;
+        height: 34px;
+    }
+
+
+    /* НАЗВА */
+
+    .spell-list__name {
+        grid-column: 2;
+        grid-row: 1;
+
+        min-width: 0;
+
+        font-size: 16px;
+        line-height: 1.25;
+        font-weight: 600;
+
+        overflow-wrap: anywhere;
+    }
+
+
+    /* ШКОЛА */
+
+    .spell-list__school {
+        grid-column: 2;
+        grid-row: 2;
+
+        margin: 0;
+
+        font-size: 13px;
+        line-height: 1.25;
+
+        white-space: normal;
+        text-align: left;
+    }
+}
+
+/* Прибираємо зависання hover на сенсорних екранах */
+
+@media (hover: none) {
+    .spell-list__item:hover {
+        color: #2d2925;
+        background: transparent;
+    }
+
+    .spell-list__item:active {
+        background: #fff7e8;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+   ========================= */
+
+@media (max-width: 420px) {
+
     .spells-filter {
-        margin-bottom: 25px;
+        align-items: stretch;
+        flex-direction: column;
+
+        gap: 6px;
     }
-}
 
-
-/* Вузький телефон */
-@media (max-width: 479px) {
-    .spells-page {
-        width: 360px;
-
-        padding-left: 14px;
-        padding-right: 14px;
+    .spells-filter select {
+        width: 100%;
+        min-width: 0;
     }
-}
 
-
-/* 360–399 */
-@media (max-width: 399px) {
-    .spells-page {
-        width: 320px;
-
-        padding-left: 12px;
-        padding-right: 12px;
+    .spell-list__item {
+        grid-template-columns:
+            34px
+            minmax(0, 1fr);
     }
+
+    .spell-list__school {
+        grid-column: 2;
+
+        margin-top: -3px;
+
+        white-space: normal;
+        text-align: left;
+    }
+
 }
