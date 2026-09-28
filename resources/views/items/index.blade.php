@@ -77,8 +77,10 @@
                                                     >
                                                         @if($item->image)
                                                             <img
-                                                                src="{{ asset('images/items') . '/' . rawurlencode($item->image) }}"
-                                                                alt="{{ $item->name }}"
+                                                                src="{{ $item->imageUrlFor(40) }}"
+                                                                srcset="{{ $item->imageSrcset(40) }}"
+                                                                width="40"
+                                                                height="40"
                                                                 loading="lazy"
                                                             >
                                                         @endif

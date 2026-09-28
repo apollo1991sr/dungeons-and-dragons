@@ -51,7 +51,8 @@ class SpellForm
 
                         FileUpload::make('image')
                             ->label('Зображення')
-                            ->disk('spells')
+                            ->disk('r2')
+                            ->directory('spells')
                             ->visibility('public')
                             ->image()
                             ->imageEditor()

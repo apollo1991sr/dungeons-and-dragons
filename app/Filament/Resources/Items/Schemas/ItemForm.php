@@ -60,7 +60,8 @@ class ItemForm
 
                         FileUpload::make('image')
                             ->label('Зображення')
-                            ->disk('items')
+                            ->disk('r2')
+                            ->directory('items')
                             ->visibility('public')
                             ->image()
                             ->imageEditor()

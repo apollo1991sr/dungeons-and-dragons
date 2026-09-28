@@ -7,9 +7,12 @@ use App\Enums\SpellLevel;
 use App\Enums\SpellSchool;
 use Illuminate\Database\Eloquent\Casts\AsEnumCollection;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Concerns\HasR2Image;
 
 class Spell extends Model
 {
+    use HasR2Image;
+
     protected $fillable = [
         'name',
         'slug',
@@ -88,5 +91,10 @@ class Spell extends Model
         }
 
         return implode(', ', $components);
+    }
+
+    public function imageSizes(): array
+    {
+        return [40, 80, 144, 288];
     }
 }

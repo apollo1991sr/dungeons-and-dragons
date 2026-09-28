@@ -96,7 +96,10 @@
                                 @if($spell->image)
 
                                     <img
-                                        src="{{ asset('images/spells') . '/' . rawurlencode($spell->image) }}"
+                                        src="{{ $spell->imageUrlFor(40) }}"
+                                        srcset="{{ $spell->imageSrcset(40) }}"
+                                        width="40"
+                                        height="40"
                                         alt=""
                                         class="spell-list__icon"
                                         loading="lazy"

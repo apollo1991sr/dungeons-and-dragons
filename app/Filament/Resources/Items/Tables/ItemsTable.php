@@ -33,7 +33,7 @@ class ItemsTable
                     ->searchable(),
                 ImageColumn::make('image')
                     ->label('Зображення')
-                    ->disk('items')
+                    ->disk('r2')
                     ->visibility('public')
                     ->square()
                     ->imageSize(40),

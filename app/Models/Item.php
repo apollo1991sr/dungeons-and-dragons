@@ -9,10 +9,11 @@ use App\Enums\ItemRarity;
 use App\Enums\ItemType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Concerns\HasR2Image;
 
 class Item extends Model
 {
-    use HasFactory;
+    use HasFactory, HasR2Image;
 
     protected $fillable = [
         'name',
@@ -90,5 +91,10 @@ class Item extends Model
         }
 
         return $value;
+    }
+
+    public function imageSizes(): array
+    {
+        return [40, 80, 276, 552];
     }
 }

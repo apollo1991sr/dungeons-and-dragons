@@ -54,7 +54,10 @@
                     @if($spell->image)
                         <div class="spell-card__icon-box">
                             <img
-                                src="{{ asset('images/spells') . '/' . rawurlencode($spell->image) }}"
+                                src="{{ $spell->imageUrlFor(144) }}"
+                                srcset="{{ $spell->imageSrcset(144) }}"
+                                width="144"
+                                height="144"
                                 alt="{{ $spell->name }}"
                                 class="spell-card__icon"
                             >

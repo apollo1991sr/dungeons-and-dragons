@@ -80,7 +80,10 @@
                                     <figure class="pi-item pi-image">
 
                                         <img
-                                            src="{{ asset('images/items') . '/' . rawurlencode($item->image) }}"
+                                            src="{{ $item->imageUrlFor(276) }}"
+                                            srcset="{{ $item->imageSrcset(276) }}"
+                                            width="276"
+                                            height="276"
                                             alt="{{ $item->name }}"
                                         >
 

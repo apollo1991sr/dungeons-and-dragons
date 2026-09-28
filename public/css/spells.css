@@ -115,7 +115,7 @@ body {
     display: grid;
 
     grid-template-columns:
-        34px
+        42px
         minmax(0, 1fr)
         auto;
 
@@ -156,8 +156,8 @@ body {
     align-items: center;
     justify-content: center;
 
-    width: 32px;
-    height: 32px;
+    width: 42px;
+    height: 42px;
 
     overflow: hidden;
 
@@ -179,8 +179,8 @@ body {
 .spell-list__icon {
     display: block;
 
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
 
     object-fit: contain;
 }
@@ -319,7 +319,7 @@ body {
     .spell-list__item {
         display: grid;
 
-        grid-template-columns: 34px minmax(0, 1fr);
+        grid-template-columns: 42px minmax(0, 1fr);
         grid-template-rows: auto auto;
 
         column-gap: 12px;
@@ -350,8 +350,8 @@ body {
 
         align-self: center;
 
-        width: 34px;
-        height: 34px;
+        width: 42px;
+        height: 42px;
     }
 
 
@@ -421,7 +421,7 @@ body {
 
     .spell-list__item {
         grid-template-columns:
-            34px
+            42px
             minmax(0, 1fr);
     }
 

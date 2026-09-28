@@ -32,10 +32,10 @@ class SpellsTable
 
                 ImageColumn::make('image')
                     ->label('')
-                    ->disk('spells')
+                    ->disk('r2')
                     ->visibility('public')
                     ->square()
-                    ->imageSize(50),
+                    ->imageSize(40),
 
                 TextColumn::make('name')
                     ->label('Назва')
