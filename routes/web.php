@@ -17,3 +17,6 @@ Route::get('/items', [ItemController::class, 'index'])
 
 Route::get('/items/{slug}', [ItemController::class, 'show'])
     ->name('items.show');
+
+Route::get('/items/card/{slug}', [ItemController::class, 'card'])
+    ->name('items.card');

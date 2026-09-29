@@ -1018,6 +1018,10 @@ a:hover {
     background-image: url("../images/icons/item-class/martial-weapon.webp");
 }
 
+.simple-weapon {
+    background-image: url("../images/icons/item-class/simple-weapon.webp");
+}
+
 .armour {
     background-image: url("../images/icons/item-class/armour.webp");
 }
@@ -1102,36 +1106,128 @@ a:hover {
     background-image: url("../images/icons/item-type/amulets.webp");
 }
 
-.longsword {
-    background-image: url("../images/icons/weapon-type/Longswords Icon.png");
+.shortswords {
+    background-image: url("../images/icons/weapon-type/shortswords.webp");
 }
 
-.greatswords {
-    background-image: url("../images/icons/weapon-type/greatswords.webp");
-}
-
-.longbows {
-    background-image: url("../images/icons/weapon-type/longbows.webp");
-}
-
-.shortbows {
-    background-image: url("../images/icons/weapon-type/shortbows.webp");
+.scimitars {
+    background-image: url("../images/icons/weapon-type/scimitars.webp");
 }
 
 .war-picks {
     background-image: url("../images/icons/weapon-type/war-picks.webp");
 }
 
-.daggers {
-    background-image: url("../images/icons/weapon-type/daggers.webp");
+.morningstars {
+    background-image: url("../images/icons/weapon-type/morningstars.webp");
+}
+
+.rapiers {
+    background-image: url("../images/icons/weapon-type/rapiers.webp");
+}
+
+.flails {
+    background-image: url("../images/icons/weapon-type/flails.webp");
+}
+
+.warhammers {
+    background-image: url("../images/icons/weapon-type/warhammers.webp");
+}
+
+.battleaxes {
+    background-image: url("../images/icons/weapon-type/battleaxes.webp");
+}
+
+.longswords {
+    background-image: url("../images/icons/weapon-type/longswords.webp");
+}
+
+.tridents {
+    background-image: url("../images/icons/weapon-type/tridents.webp");
+}
+
+.halberds {
+    background-image: url("../images/icons/weapon-type/halberds.webp");
+}
+
+.greatswords {
+    background-image: url("../images/icons/weapon-type/greatswords.webp");
+}
+
+.greataxes {
+    background-image: url("../images/icons/weapon-type/greataxes.webp");
+}
+
+.glaives {
+    background-image: url("../images/icons/weapon-type/glaives.webp");
 }
 
 .mauls {
     background-image: url("../images/icons/weapon-type/mauls.webp");
 }
 
-.rapiers {
-    background-image: url("../images/icons/weapon-type/rapiers.webp");
+.pikes {
+    background-image: url("../images/icons/weapon-type/pikes.webp");
+}
+
+.hand-crossbows {
+    background-image: url("../images/icons/weapon-type/hand-crossbows.webp");
+}
+
+.heavy-crossbows {
+    background-image: url("../images/icons/weapon-type/heavy-crossbows.webp");
+}
+
+.longbows {
+    background-image: url("../images/icons/weapon-type/longbows.webp");
+}
+
+.daggers {
+    background-image: url("../images/icons/weapon-type/daggers.webp");
+}
+
+.clubs {
+    background-image: url("../images/icons/weapon-type/clubs.webp");
+}
+
+.light-hammers {
+    background-image: url("../images/icons/weapon-type/light-hammers.webp");
+}
+
+.sickles {
+    background-image: url("../images/icons/weapon-type/sickles.webp");
+}
+
+.handaxes {
+    background-image: url("../images/icons/weapon-type/handaxes.webp");
+}
+
+.maces {
+    background-image: url("../images/icons/weapon-type/maces.webp");
+}
+
+.javelins {
+    background-image: url("../images/icons/weapon-type/javelins.webp");
+}
+
+.quarterstaves {
+    background-image: url("../images/icons/weapon-type/quarterstaves.webp");
+}
+
+.spears {
+    background-image: url("../images/icons/weapon-type/spears.webp");
+}
+
+.greatclubs {
+    background-image: url("../images/icons/weapon-type/greatclubs.webp");
+}
+
+.light-crossbows {
+    background-image: url("../images/icons/weapon-type/light-crossbows.webp");
+}
+
+.shortbows {
+    background-image: url("../images/icons/weapon-type/shortbows.webp");
 }
 
 .weapon-range.melee {
@@ -1745,6 +1841,19 @@ body {
     text-shadow: none !important;
 }
 
+.page__main > .breadcrumbs {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.breadcrumbs__card-link {
+    margin-left: auto;
+    padding-left: 16px;
+    white-space: nowrap;
+    text-align: right;
+}
+
 img,
 .portable-infobox .pi-data-value img {
     filter: none !important;
@@ -1884,6 +1993,12 @@ img,
 
     .nowrap {
         white-space: normal;
+    }
+
+    .breadcrumbs__card-link {
+        margin-left: 0;
+        padding-left: 0;
+        width: 100%;
     }
 }
 

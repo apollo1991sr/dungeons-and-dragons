@@ -1,0 +1,55 @@
+.item-card-page { box-sizing: border-box; width: 126mm; max-width: 100%; margin: 0 auto; padding: 20px 0; }
+.item-card-toolbar { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 12px; font: 14px 'Alegreya Sans', Arial, sans-serif; }
+.item-card-toolbar a { color: var(--theme-link-color); }
+.item-card-toolbar span { color: #66584a; }
+.item-card {
+    box-sizing: border-box; width: 126mm; height: 176mm; padding: 4mm;
+    border: .5mm outset #ba783c; border-radius: 3mm;
+    background: linear-gradient(#fffaf4, #f6efe8 58%, #efe2d6);
+    color: #111; font: 11pt/1.22 'Alegreya Sans', 'Noto Sans', Arial, sans-serif;
+    break-inside: avoid; page-break-inside: avoid;
+}
+.item-card__header { margin-bottom: 2mm; padding: 1.5mm 2mm; border: .25mm outset #ca884c; border-radius: 2mm; background: #efe2d6; text-align: center; }
+.item-card__header h1 { margin: 0; color: #222; font: 700 18pt/1.08 Alegreya, Georgia, serif; overflow-wrap: anywhere; }
+.item-card__art { float: right; width: 40mm; height: 40mm; box-sizing: border-box; margin: 0 0 2mm 3mm;
+    border: .25mm solid var(--rarity-color, #8f8f8f); border-radius: 2mm; overflow: hidden; }
+.item-card__art img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.item-card__summary { min-width: 0; }
+.item-card__facts { margin: 0; font-size: 10pt; line-height: 1.12; }
+.item-card__fact { display: grid; grid-template-columns: 25mm minmax(0, 1fr); gap: 1mm; align-items: center; padding: .65mm 1mm;
+    border-bottom: 1px solid #c8b8a8; }
+.item-card__fact dt { display: flex; align-items: center; min-height: 4.5mm; font-weight: 700; color: #5f3e23; }
+.item-card__fact dd { display: flex; align-items: center; flex-wrap: wrap; gap: 1mm; margin: 0; min-width: 0; min-height: 4.5mm; overflow-wrap: anywhere; }
+.item-card__fact .icon { width: 4mm; height: 4mm; flex: 0 0 auto; vertical-align: middle; }
+.item-card__stats { margin: 0; font-size: 10pt; line-height: 1.16; }
+.item-card__stat { padding-top: .45mm; padding-bottom: .45mm; }
+.item-card__stat dd { overflow-wrap: anywhere; }
+.item-card__stat .icon { width: 4.5mm; height: 4.5mm; vertical-align: middle; }
+.item-card__stat .icon.dice { width: 6mm; height: 6mm; }
+.item-card__stat .inline-flex, .item-card__stat .inline-block { display: inline-flex; align-items: center; flex-wrap: wrap; max-width: 100%; }
+.item-card__body { min-width: 0; overflow-wrap: anywhere; }
+.item-card__section { margin-top: 1.5mm; }
+.item-card__section h2 { font: 700 13pt/1.1 Alegreya, Georgia, serif; color: #5f3600; margin: 0 0 1mm;
+    padding-bottom: .5mm; border-bottom: 1px solid #b89a7b; }
+.item-card__body p { margin: 0 0 1.2mm; }
+.item-card__body ul, .item-card__body ol { margin: 1mm 0 1.5mm; padding-left: 2mm; }
+.item-card__body img { max-width: 100%; height: auto; }
+/* common.css розраховує ширину цих блоків для сторінки з бічним інфобоксом. */
+.item-card .table-block, .item-card .table-block-inner {
+    display: block; box-sizing: border-box; width: 100%; max-width: 100%; min-width: 0;
+    margin: 1mm 0; padding: 2mm 2.5mm; font-size: 10.5pt; line-height: 1.2;
+    border: .4mm outset #8a480c; border-radius: 2mm;
+    background: linear-gradient(#fffaf4, #f6efe8, #efe2d6);
+}
+.item-card .table-block .table-block-inner { margin: 1mm 0 0; }
+.item-card .table-block *, .item-card .table-block-inner * { max-width: 100%; }
+.item-card .item-card__body .icon { max-width: none; width: 4.5mm; height: 4.5mm; }
+.item-card .table-block .inline-block, .item-card .table-block-inner .inline-block { display: inline-flex; flex-wrap: wrap; }
+.item-card .table-block-inner.hide-in-card { display: none !important; }
+@page { size: A4 portrait; margin: 8mm; }
+@media print {
+    html, body { background: #fff !important; margin: 0 !important; padding: 0 !important; }
+    .item-card-page { max-width: none; margin: 0; padding: 0; }
+    .item-card-toolbar, .breadcrumbs { display: none !important; }
+    .item-card { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}

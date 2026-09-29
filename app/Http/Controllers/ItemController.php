@@ -134,6 +134,18 @@ class ItemController extends Controller
         return view('items.show', compact('item'));
     }
 
+
+
+    /**
+     * Display the specified resource.
+     */
+    public function card(string $slug)
+    {
+        $item = Item::where('slug', $slug)->firstOrFail();
+
+        return view('items.card', compact('item'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      */

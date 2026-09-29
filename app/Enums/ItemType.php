@@ -9,15 +9,40 @@ enum ItemType: string
     case Rings = 'rings';
     case Cloaks = 'cloaks';
 
-    // Зброя
-    case Longsword = 'longsword';
-    case Greatswords = 'greatswords';
-    case Longbows = 'longbows';
-    case Shortbows = 'shortbows';
+    // Військова зброя
+    case Shortswords = 'shortswords';
+    case Scimitars = 'scimitars';
     case WarPicks = 'war-picks';
-    case Daggers = 'daggers';
-    case Mauls = 'mauls';
+    case Morningstars = 'morningstars';
     case Rapiers = 'rapiers';
+    case Flails = 'flails';
+    case Warhammers = 'warhammers';
+    case Battleaxes = 'battleaxes';
+    case Longswords = 'longswords';
+    case Tridents = 'tridents';
+    case Halberds = 'halberds';
+    case Greatswords = 'greatswords';
+    case Greataxes = 'greataxes';
+    case Glaives = 'glaives';
+    case Mauls = 'mauls';
+    case Pikes = 'pikes';
+    case Longbows = 'longbows';
+    case HandCrossbows = 'hand-crossbows';
+    case HeavyCrossbows = 'heavy-crossbows';
+
+    // Проста зброя
+    case Daggers = 'daggers';
+    case Clubs = 'clubs';
+    case LightHammers = 'light-hammers';
+    case Sickles = 'sickles';
+    case Handaxes = 'handaxes';
+    case Maces = 'maces';
+    case Javelins = 'javelins';
+    case Quarterstaves = 'quarterstaves';
+    case Spears = 'spears';
+    case Greatclubs = 'greatclubs';
+    case LightCrossbows = 'light-crossbows';
+    case Shortbows = 'shortbows';
 
     // Обладунки
     case HeavyArmour = 'heavy-armour';
@@ -40,15 +65,40 @@ enum ItemType: string
             self::Rings => 'Персні',
             self::Cloaks => 'Плащі',
 
-            // Зброя
-            self::Longsword => 'Довгі мечі',
-            self::Greatswords => 'Великі мечі',
-            self::Longbows => 'Довгі луки',
-            self::Shortbows => 'Короткі луки',
+            // Зброя військова
+            self::Shortswords => 'Короткі мечі',
+            self::Scimitars => 'Шаблі',
             self::WarPicks => 'Келепи',
-            self::Daggers => 'Кинджали',
-            self::Mauls => 'Молоти',
+            self::Morningstars => 'Морґенштерни',
             self::Rapiers => 'Рапіри',
+            self::Flails => 'Ціпи',
+            self::Warhammers => 'Бойові молоти',
+            self::Battleaxes => 'Бойові сокири',
+            self::Longswords => 'Довгі мечі',
+            self::Tridents => 'Тризуби',
+            self::Halberds => 'Алебарди',
+            self::Greatswords => 'Великі мечі',
+            self::Greataxes => 'Великі сокири',
+            self::Glaives => 'Глефи',
+            self::Mauls => 'Молоти',
+            self::Pikes => 'Піки',
+            self::Longbows => 'Довгі луки',
+            self::HandCrossbows => 'Малі арбалети',
+            self::HeavyCrossbows => 'Важкі арбалети',
+
+            // Зброя проста
+            self::Daggers => 'Кинджали',
+            self::Clubs => 'Довбні',
+            self::LightHammers => 'Легкі молоти',
+            self::Sickles => 'Серпи',
+            self::Handaxes => 'Сокири',
+            self::Maces => 'Булави',
+            self::Javelins => 'Сулиці',
+            self::Quarterstaves => 'Палиці',
+            self::Spears => 'Списи',
+            self::Greatclubs => 'Великі довбні',
+            self::LightCrossbows => 'Легкі арбалети',
+            self::Shortbows => 'Короткі луки',
 
             // Обладунки
             self::HeavyArmour => 'Важкі обладунки',

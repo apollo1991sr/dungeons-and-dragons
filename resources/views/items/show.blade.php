@@ -31,6 +31,11 @@
                         <span class="breadcrumbs__current" aria-current="page">
                             {{ $item->name }}
                         </span>
+
+                        <a href="{{ route('items.card', $item->slug) }}"
+                           class="breadcrumbs__link breadcrumbs__card-link">
+                            Картка для друку →
+                        </a>
                     </nav>
 
                     <div class="page-content">
