@@ -46,7 +46,7 @@
 .item-card .item-card__body .icon { max-width: none; width: 4.5mm; height: 4.5mm; }
 .item-card .table-block .inline-block, .item-card .table-block-inner .inline-block { display: inline-flex; flex-wrap: wrap; }
 .item-card .table-block-inner.hide-in-card { display: none !important; }
-@page { size: A4 portrait; margin: 8mm; }
+@page { size: A4 landscape; margin: 8mm; }
 @media print {
     html, body { background: #fff !important; margin: 0 !important; padding: 0 !important; }
     .item-card-page { max-width: none; margin: 0; padding: 0; }
