@@ -1,0 +1,67 @@
+.item-print-page { width: 100%; max-width: 1100px; margin: 0 auto; padding: 24px 16px; box-sizing: border-box; }
+.item-print-controls { margin-bottom: 24px; }
+.item-print-controls h1 { margin: 12px 0; }
+.item-print-row { display: grid; grid-template-columns: minmax(120px, 1fr) minmax(180px, 2fr) 90px auto; gap: 12px; align-items: end; margin-bottom: 12px; }
+.item-print-row label { display: grid; gap: 6px; min-width: 0; }
+.item-print-row input, .item-print-row select { width: 100%; min-width: 0; box-sizing: border-box; padding: 8px; font: inherit; }
+.item-print-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.item-print-controls button { padding: 8px 12px; cursor: pointer; font: inherit; }
+.item-print-controls button:disabled { opacity: .5; cursor: default; }
+.item-print-errors { color: #9b2424; }
+.item-print-errors[hidden] { display: none; }
+.item-print-preview { overflow-x: auto; padding: 4px; }
+.item-print-sheet {
+    box-sizing: border-box;
+    width: 210mm;
+    height: 297mm;
+    padding: 10mm;
+
+    display: grid;
+    grid-template-columns: repeat(2, 95mm);
+    grid-template-rows: repeat(2, 138.5mm);
+    gap: 0;
+    align-content: start;
+    justify-content: center;
+
+    background: white;
+    margin: 0 auto 24px;
+    box-shadow: 0 2px 12px #0002;
+}
+.item-print-slot {     position: relative;
+    width: 95mm;
+    height: 138.5mm;
+    overflow: hidden;
+}
+.item-print-scaled {     width: 126mm;
+    height: 183.694736842mm;
+    transform: scale(0.753968254);
+    transform-origin: top left;
+}
+.item-print-slot .item-card { margin: 0; max-width: none; }
+
+.item-print-scaled .item-card {
+    height: 100%;
+}
+.item-print-slot[data-overflow] { outline: 2px solid #b42318; }
+@media screen and (max-width: 700px) {
+    .item-print-row { grid-template-columns: minmax(0, 1fr) 90px; }
+    .item-print-row label:first-child, .item-print-row label:nth-child(2) { grid-column: 1 / -1; }
+}
+@page { size: A4 portrait; margin: 0; }
+@media print {
+    /* Hide layout siblings without retaining their space. Preserve only the sheet ancestry. */
+    body *:not(.item-print-sheets):not(.item-print-sheets *):not(:has(.item-print-sheets)) { display: none !important; }
+    html, body, body *:has(.item-print-sheets) {
+        display: block !important; position: static !important; float: none !important;
+        width: auto !important; min-width: 0 !important; max-width: none !important;
+        height: auto !important; min-height: 0 !important; max-height: none !important;
+        margin: 0 !important; padding: 0 !important; border: 0 !important;
+        overflow: visible !important; transform: none !important; background: white !important;
+    }
+    body *:has(.item-print-sheets)::before, body *:has(.item-print-sheets)::after { display: none !important; }
+    .item-print-sheets { margin: 0 !important; padding: 0 !important; }
+    .item-print-sheet { margin: 0; box-shadow: none; break-inside: avoid; break-after: page; page-break-after: always; }
+    .item-print-sheet:last-child { break-after: auto; page-break-after: auto; }
+    .item-print-slot { outline: none !important; }
+    .item-print-sheet, .item-print-sheet * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}

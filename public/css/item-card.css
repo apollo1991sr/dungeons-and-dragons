@@ -53,3 +53,5 @@
     .item-card-toolbar, .breadcrumbs { display: none !important; }
     .item-card { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
 }
+
+.item-card-toolbar { flex-wrap: wrap; }
