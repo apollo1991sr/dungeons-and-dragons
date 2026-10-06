@@ -1230,8 +1230,12 @@ a:hover {
     background-image: url("../images/icons/weapon-type/shortbows.webp");
 }
 
-.weapon-range.melee {
+.melee {
     background-image: url("../images/icons/weapon-range/melee.webp");
+}
+
+.range {
+    background-image: url("../images/icons/weapon-range/range.webp");
 }
 
 .weapon {
