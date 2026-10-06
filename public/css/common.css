@@ -1702,6 +1702,7 @@ body {
     color: #111 !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+    font-family: 'Alegreya';
 }
 
 .main-container,

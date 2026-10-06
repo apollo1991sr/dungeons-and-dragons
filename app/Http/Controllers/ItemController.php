@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\ItemClass;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -15,95 +14,65 @@ class ItemController extends Controller
     public function index()
     {
         $items = $this->sortUk(
-            Item::query()->get(),
+            Item::query()
+                ->with(['itemCategory', 'itemClass', 'itemType'])
+                ->get(),
             fn (Item $item) => $item->name
         );
 
         $categories = $items
-            ->groupBy(fn (Item $item) => $item->category?->value ?? 'other')
-            ->map(function (Collection $categoryItems) {
-
-                $category = $categoryItems->first()->category;
+            ->groupBy(
+                fn (Item $item) => $item->item_category_id ?? 'other'
+            )
+            ->map(function (Collection $categoryItems): array {
+                $category = $categoryItems->first()->itemCategory;
 
                 $groups = $categoryItems
-                    ->groupBy(fn (Item $item) => $this->getIndexClassLabel($item))
-                    ->map(function (Collection $classItems, string $classLabel) {
+                    ->groupBy(
+                        fn (Item $item) => $item->item_class_id ?? 'other'
+                    )
+                    ->map(function (Collection $classItems): array {
+                        $class = $classItems->first()->itemClass;
 
                         $hasTypes = $classItems->contains(
-                            fn (Item $item) => $item->type !== null
+                            fn (Item $item) => $item->itemType !== null
                         );
 
-                        /*
-                         * Якщо типів немає:
-                         *
-                         * Гранати:
-                         *   Алхімічне полум'я
-                         *   Бомба...
-                         */
-                        if (!$hasTypes) {
-                            return [
-                                'label' => $classLabel,
-
-                                'types' => collect([
-                                    [
-                                        'label' => null,
-                                        'items' => $classItems->values(),
-                                    ],
-                                ]),
-                            ];
-                        }
-
-                        /*
-                         * Якщо є типи:
-                         *
-                         * Аксесуари:
-                         *
-                         * Амулети:
-                         *   ...
-                         *
-                         * Персні:
-                         *   ...
-                         */
                         $types = $classItems
                             ->groupBy(
-                                fn (Item $item) => $item->type?->label() ?? 'Інше'
+                                fn (Item $item) => $item->item_type_id ?? 'other'
                             )
-                            ->map(function (Collection $typeItems, string $typeLabel) {
+                            ->map(function (Collection $typeItems) use ($hasTypes): array {
+                                $type = $typeItems->first()->itemType;
+
                                 return [
-                                    'label' => $typeLabel,
+                                    'label' => $hasTypes
+                                        ? ($type?->label() ?? 'Інше')
+                                        : null,
+                                    'sort_order' => $type?->sort_order ?? PHP_INT_MAX,
                                     'items' => $typeItems->values(),
                                 ];
                             })
+                            ->sortBy('sort_order')
                             ->values();
 
-                        $types = $this->sortUk(
-                            $types,
-                            fn (array $type) => $type['label']
-                        );
-
                         return [
-                            'label' => $classLabel,
+                            'label' => $class?->label() ?? 'Інше',
+                            'sort_order' => $class?->sort_order ?? PHP_INT_MAX,
                             'types' => $types,
                         ];
                     })
+                    ->sortBy('sort_order')
                     ->values();
-
-                $groups = $this->sortUk(
-                    $groups,
-                    fn (array $group) => $group['label']
-                );
 
                 return [
                     'label' => $category?->label() ?? 'Інше',
+                    'sort_order' => $category?->sort_order ?? PHP_INT_MAX,
                     'groups' => $groups,
                 ];
             })
+            ->sortBy('sort_order')
             ->values();
-
-        $categories = $this->sortUk(
-            $categories,
-            fn (array $category) => $category['label']
-        );
 
         return view('items.index', compact('categories'));
     }
@@ -172,14 +141,7 @@ class ItemController extends Controller
 
     private function getIndexClassLabel(Item $item): string
     {
-        return match ($item->item_class) {
-            ItemClass::SimpleWeapon,
-            ItemClass::MartialWeapon => 'Зброя',
-
-            null => 'Інше',
-
-            default => $item->item_class->label(),
-        };
+        return $item->itemClass?->label() ?? 'Інше';
     }
 
 

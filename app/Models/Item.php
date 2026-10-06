@@ -3,25 +3,23 @@
 namespace App\Models;
 
 use App\Enums\ItemAction;
-use App\Enums\ItemCategory;
-use App\Enums\ItemClass;
 use App\Enums\ItemRarity;
-use App\Enums\ItemType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Concerns\HasR2Image;
+use App\Models\Concerns\HasItemClassification;
 
 class Item extends Model
 {
-    use HasFactory, HasR2Image;
+    use HasFactory, HasR2Image, HasItemClassification;
 
     protected $fillable = [
         'name',
         'slug',
         'image',
-        'category',
-        'item_class',
-        'type',
+        'item_category_id',
+        'item_class_id',
+        'item_type_id',
         'proficiency',
         'rarity',
         'theme',
@@ -38,9 +36,9 @@ class Item extends Model
     protected function casts(): array
     {
         return [
-            'category' => ItemCategory::class,
-            'item_class' => ItemClass::class,
-            'type' => ItemType::class,
+            'item_category_id' => 'integer',
+            'item_class_id' => 'integer',
+            'item_type_id' => 'integer',
             'rarity' => ItemRarity::class,
             'action' => ItemAction::class,
 

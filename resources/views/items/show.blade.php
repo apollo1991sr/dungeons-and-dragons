@@ -122,11 +122,11 @@
                                         <div class="pi-data-value pi-font">
 
                                             <span
-                                                class="icon item-category {{ $item->category->icon() }}"
+                                                class="icon item-category {{ $item->itemCategory->icon() }}"
                                             ></span>
 
                                             <span>
-                                                {{ $item->category->label() }}
+                                                {{ $item->itemCategory->label() }}
                                             </span>
 
                                         </div>
@@ -137,7 +137,7 @@
 
 
                                 {{-- Клас --}}
-                                @if($item->item_class)
+                                @if($item->itemClass)
 
                                     <div class="pi-item pi-data pi-item-spacing pi-border-color">
 
@@ -148,10 +148,10 @@
                                         <div class="pi-data-value pi-font">
 
                                             <span
-                                                class="icon item-class {{ $item->item_class->icon() }}"
+                                                class="icon item-class {{ $item->itemClass->icon() }}"
                                             ></span>
 
-                                            {{ $item->item_class->label() }}
+                                            {{ $item->itemClass->label() }}
 
                                         </div>
 
@@ -161,7 +161,7 @@
 
 
                                 {{-- Тип --}}
-                                @if($item->type)
+                                @if($item->itemType)
 
                                     <div class="pi-item pi-data pi-item-spacing pi-border-color">
 
@@ -172,10 +172,10 @@
                                         <div class="pi-data-value pi-font">
 
                                             <span
-                                                class="icon {{ $item->type->icon() }}"
+                                                class="icon {{ $item->itemType->icon() }}"
                                             ></span>
 
-                                            {{ $item->type->label() }}
+                                            {{ $item->itemType->label() }}
 
                                         </div>
 
@@ -501,12 +501,12 @@
                                  FOOTER INFOBOX
                             ====================================================== --}}
 
-                            @if($item->category)
+                            @if($item->itemCategory)
 
                                 <nav class="pi-navigation pi-item-spacing pi-secondary-font">
 
                                     <span class="link">
-                                        {{ $item->category->label() }}
+                                        {{ $item->itemCategory->label() }}
                                     </span>
 
                                 </nav>

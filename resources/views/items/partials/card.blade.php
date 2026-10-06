@@ -1,7 +1,19 @@
 @php
     $facts = collect();
-    foreach (['category' => 'Категорія', 'item_class' => 'Клас', 'type' => 'Тип'] as $field => $label) {
-        if ($item->{$field}) $facts->push(['label' => $label, 'value' => $item->{$field}->label(), 'icon' => $item->{$field}->icon()]);
+    foreach ([
+        'itemCategory' => 'Категорія',
+        'itemClass' => 'Клас',
+        'itemType' => 'Тип',
+    ] as $relation => $label) {
+        $classification = $item->{$relation};
+
+        if ($classification) {
+            $facts->push([
+                'label' => $label,
+                'value' => $classification->label(),
+                'icon' => $classification->icon(),
+            ]);
+        }
     }
     if ($item->rarity) $facts->push(['label' => 'Рідкісність', 'value' => $item->rarity->label(), 'icon' => 'rarity']);
     if ($item->proficiency) $facts->push(['label' => 'Спеціалізація', 'value' => $item->proficiency, 'icon' => 'proficiency']);

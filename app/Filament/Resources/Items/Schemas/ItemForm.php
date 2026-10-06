@@ -18,6 +18,7 @@ use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
+use App\Filament\Support\ItemClassificationFields;
 
 class ItemForm
 {
@@ -90,29 +91,7 @@ class ItemForm
                 Section::make('Класифікація')
                     ->schema([
 
-                        Select::make('category')
-                            ->label('Категорія')
-                            ->options(
-                                self::enumOptions(ItemCategory::cases())
-                            )
-                            ->required()
-                            ->native(false),
-
-                        Select::make('item_class')
-                            ->label('Клас')
-                            ->options(
-                                self::enumOptions(ItemClass::cases())
-                            )
-                            ->searchable()
-                            ->native(false),
-
-                        Select::make('type')
-                            ->label('Тип')
-                            ->options(
-                                self::enumOptions(ItemType::cases())
-                            )
-                            ->searchable()
-                            ->native(false),
+                        ...ItemClassificationFields::make(),
 
                         Select::make('rarity')
                             ->label('Рідкісність')

@@ -34,7 +34,11 @@ class ItemPrintController extends Controller
             if (array_sum(array_column($rows, 'quantity')) > 200) {
                 $printErrors->add('rows', 'За один раз можна надрукувати до 200 карток.');
             } else {
-                $selected = Item::query()->whereIn('id', array_column($rows, 'id'))->get()->keyBy('id');
+                $selected = Item::query()
+                    ->with(['itemCategory', 'itemClass', 'itemType'])
+                    ->whereIn('id', array_column($rows, 'id'))
+                    ->get()
+                    ->keyBy('id');
                 foreach ($rows as $row) {
                     $item = $selected->get((int) $row['id']);
                     if (!$item) {

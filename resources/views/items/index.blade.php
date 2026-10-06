@@ -66,7 +66,7 @@
                                         <div class="items-list">
                                             @foreach($type['items'] as $item)
                                                 <a
-                                                    href="{{ route('items.show', $item->slug) }}"
+                                                    href="{{ route('items.card', $item->slug) }}"
                                                     class="items-list__item"
                                                 >
                                                     <span
