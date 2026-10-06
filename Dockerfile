@@ -63,6 +63,11 @@ RUN mkdir -p \
     bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
+RUN printf '%s\n' \
+    'upload_max_filesize=10M' \
+    'post_max_size=16M' \
+    > /usr/local/etc/php/conf.d/uploads.ini
+
 ENV APP_ENV=production
 ENV APP_DEBUG=false
 ENV LOG_CHANNEL=stderr
