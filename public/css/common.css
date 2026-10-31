@@ -1353,6 +1353,10 @@ a:hover {
     background-image: url("../images/icons/condition/surprised.webp");
 }
 
+.sleep {
+    background-image: url("../images/icons/condition/sleep.webp");
+}
+
 .burning {
     background-image: url("../images/icons/condition/burning.webp");
 }

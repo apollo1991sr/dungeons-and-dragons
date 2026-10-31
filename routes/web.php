@@ -23,3 +23,6 @@ Route::get('/items/{slug}', [ItemController::class, 'show'])
 
 Route::get('/items/card/{slug}', [ItemController::class, 'card'])
     ->name('items.card');
+
+Route::view('/cards/print', 'cards.print')
+    ->name('cards.print');
