@@ -1314,6 +1314,10 @@ a:hover {
     background-image: url("../images/icons/general/weight.webp");
 }
 
+.critical-hit {
+    background-image: url("../images/icons/general/critical-hit.webp");
+}
+
 
 /* Conditions */
 /* стани */
