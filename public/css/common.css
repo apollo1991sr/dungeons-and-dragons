@@ -1321,6 +1321,10 @@ a:hover {
 
 /* Conditions */
 /* стани */
+.incapacitated {
+    background-image: url("../images/icons/condition/incapacitated.webp");
+}
+
 .blinded {
     background-image: url("../images/icons/condition/blinded.webp");
 }
